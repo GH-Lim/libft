@@ -6,7 +6,7 @@
 /*   By: gulim <gulim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:13:08 by gulim             #+#    #+#             */
-/*   Updated: 2021/05/25 15:10:51 by gulim            ###   ########.fr       */
+/*   Updated: 2021/06/08 16:20:19 by gulim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_istrimmed(char c, char const *set)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while (set[i])
 		if (c == set[i++])
@@ -25,9 +25,9 @@ static int	ft_istrimmed(char c, char const *set)
 
 char		*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	start;
-	size_t	end;
+	int		i;
+	int		start;
+	int		end;
 	char	*result;
 
 	i = ft_strlen(s1);
