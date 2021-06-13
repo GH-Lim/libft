@@ -6,7 +6,7 @@
 /*   By: gulim <gulim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 16:13:08 by gulim             #+#    #+#             */
-/*   Updated: 2021/06/08 16:20:19 by gulim            ###   ########.fr       */
+/*   Updated: 2021/06/11 18:05:43 by gulim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ char		*ft_strtrim(char const *s1, char const *set)
 	end = i - 1;
 	while (end >= start && ft_istrimmed(s1[end], set))
 		end--;
-	if ((result = (char *)malloc(end - start + 1)) == NULL)
+	end++;
+	if ((result = (char *)malloc(sizeof(char) * (end - start + 1))) == NULL)
 		return (NULL);
 	i = 0;
-	while (start + i <= end)
+	while (start + i < end)
 	{
 		result[i] = s1[start + i];
 		i++;

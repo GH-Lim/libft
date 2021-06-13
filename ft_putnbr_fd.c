@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gulim <gulim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 13:44:45 by gulim             #+#    #+#             */
-/*   Updated: 2021/06/11 18:43:56 by gulim            ###   ########.fr       */
+/*   Created: 2021/06/11 15:10:23 by gulim             #+#    #+#             */
+/*   Updated: 2021/06/11 15:40:42 by gulim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+static int	ft_abs(int n)
 {
-	char		*d;
-	const char	*s;
+	if (n < 0)
+		return (-n);
+	return (n);
+}
 
-	d = dst;
-	s = src;
-	if (dst <= src)
+static void	ft_recur_put(int n, int fd)
+{
+	if (n == 0)
+		return ;
+	ft_recur_put(n / 10, fd);
+	ft_putchar_fd(ft_abs(n % 10) + '0', fd);
+}
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	if (n == 0)
 	{
-		while (len--)
-			*d++ = *s++;
+		ft_putchar_fd('0', fd);
+		return ;
 	}
-	else
-	{
-		d = d + len - 1;
-		s = s + len - 1;
-		while (len--)
-			*d-- = *s--;
-	}
-	return (dst);
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	ft_recur_put(n, fd);
 }
