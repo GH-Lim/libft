@@ -89,11 +89,11 @@ make bonus는 libft.a 라이브러리에 보너스 함수를 추가합니다.
 이 파트에서는 .c 파일과 헤더에 _bonus를 추가 할 필요가 없습니다. 자신의 보너스 기능이 포함 된 파일에만 _bonus를 추가하십시오.
 
 ```c
-typedef struct	s_list
+typedef struct  s_list
 {
-  void					*content;
-  struct s_list	*next;
-}								t_list;
+  void          *content;
+  struct s_list *next;
+}               t_list;
 ```
 
 다음은 t_list 구조체의 필드에 대한 설명입니다.
